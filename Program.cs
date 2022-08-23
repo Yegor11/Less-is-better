@@ -6,10 +6,10 @@ namespace TestTask
 {
     internal class Program
     {
-        static int numbersum(string numbers) // splitting number into digits for comparing string elements
+        static ulong numbersum(string numbers) // splitting number into digits for comparing string elements
         {
-            int number = Convert.ToInt32(numbers);
-            int result = 0;
+            ulong number = Convert.ToUInt64(numbers);
+            ulong result = 0;
             while (number != 0)
             {
                 result += number % 10;
@@ -33,8 +33,8 @@ namespace TestTask
              {
                  char[] charofone = one.ToCharArray();
                  char[] charoftwo = two.ToCharArray();
-                 int max = Math.Max(one.Length, two.Length);
-                 for (int i = 0; i < max; i++)
+                 int min =  Math.Min(one.Length, two.Length);
+                 for (int i = 0; i < min; i++)
                  {
                      if (charofone[i] == charoftwo[i])
                      {
@@ -117,20 +117,20 @@ namespace TestTask
             numbers.Add(number);
 
             // casting back to string, because of task requirements
-            List<string> sortedlist  = Quicksort(numbers);
+            List<string> sortedlist  =  Quicksort(numbers);
             string sortedstring = String.Empty;
             foreach (var element in sortedlist)
             {
                 sortedstring += element;
                 sortedstring += " ";
             }
-            return sortedstring;
+            return sortedstring.Trim();
         }
 
         public static void Main(string[] args)
         {
             
-           string list = "    45 34 24 108 94  76 58 49  64 130 80 49 49 43 900 71  555541 555514 993111 993  ";
+           string list = "71899703 200 6 91 425 4 67407 7 96488 6 4 2 7 31064 9 7920 1 34608557 27 72 18 81";
            if (list == String.Empty)
            {
                Console.WriteLine("Empty list!");
